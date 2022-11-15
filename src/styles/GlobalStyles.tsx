@@ -9,8 +9,9 @@ export const nunitoSans = NunitoSans({
 const GlobalStyles = createGlobalStyle`
   :root {
     /* Global */
-    --shadow: ${(props) => props.theme.customShadow};
+    --shadow: ${(props) => props.theme.shadow};
     --mobile: ${(props) => props.theme.breakpoints.mobile};
+    --laptop: ${(props) => props.theme.breakpoints.laptop};
     --tablet: ${(props) => props.theme.breakpoints.tablet};
     --desktop: ${(props) => props.theme.breakpoints.desktop};
 
@@ -28,13 +29,19 @@ const GlobalStyles = createGlobalStyle`
     --textColor: ${(props) => props.theme.dark.textColor};
     --textPlaceholderColor: ${(props) => props.theme.dark.textPlaceholderColor};
   }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans", Inter, "Helvetica", Arial, sans-serif;
+
+    transition: background-color 0.2s;
+  }
   
   html,
   body {
-    padding: 0;
-    margin: 0;
-    font-family: "Nunito Sans", Inter, "Helvetica", Arial, sans-serif;
-
+    scroll-behavior: smooth;
     background-color: var(--bgColor);
     color: var(--textColor);
   }
@@ -42,10 +49,15 @@ const GlobalStyles = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
+    transition: 0.2s;
+
+    &:hover {
+      color: ${props => props.theme.colors.primary};
+    }
   }
 
-  * {
-    box-sizing: border-box;
+  ::placeholder {
+    color: var(--textPlaceholderColor);
   }
 `;
 

@@ -1,22 +1,32 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Container = styled.div`
-  padding: 0 0.5rem;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  min-height: 100vh;
-`
-const Main = styled.main`
-  padding: 5rem 0;
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
+  height: 100%;
+  min-height: 100vh;
+`;
+const Main = styled.main`
+  height: 100%;
+  mih-height: 100%;
+  padding: 8.5rem 1.5rem 5rem;
+  margin: 0 auto;
+  flex-grow: 1;
+  width: 100%;
+  max-width: var(--mobile);
+
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    max-width: calc(var(--tablet) / 1.1);
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
+    max-width: calc(var(--laptop) / 1.1);
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    max-width: calc(var(--desktop) / 1.1);
+  }
+`;
 
 const Title = styled.h1`
   margin: 0;
@@ -33,13 +43,13 @@ const Title = styled.h1`
       text-decoration: underline;
     }
   }
-`
+`;
 
 const Description = styled.p`
   text-align: center;
   line-height: 1.5;
   font-size: 1.5rem;
-`
+`;
 const CodeTag = styled.code`
   background: #fafafa;
   border-radius: 5px;
@@ -48,6 +58,6 @@ const CodeTag = styled.code`
   font-size: 1.1rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
-`
+`;
 
-export { Container, Main, Title, Description, CodeTag }
+export { Container, Main, Title, Description, CodeTag };

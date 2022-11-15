@@ -9,6 +9,7 @@ export type Countries = {
   alpha3Code: string;
   flags: {
     png: string;
+    svg: string;
   };
   name: string;
   population: number;

@@ -21,13 +21,21 @@ type Theme = {
 
 declare module "styled-components" {
   export interface DefaultTheme {
+    colors: {
+      primary: string;
+      secondary: string;
+      gray: string;
+    }
+    minWidth: string;
+    maxWidth: string;
     breakpoints: {
       mobile: string;
       tablet: string;
+      laptop: string;
       desktop: string;
     }
-    light?: Theme;
-    dark?: Theme;
-    customShadow: string;
+    light: Theme;
+    dark: Theme;
+    shadow: string;
   }
 }
