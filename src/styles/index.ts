@@ -1,1 +1,0 @@
-export { Container, Main, Title, Description, CodeTag } from "./sharedStyles";
