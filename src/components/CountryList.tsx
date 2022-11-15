@@ -1,6 +1,6 @@
 import React from "react";
-import type { Countries } from "src/types";
 import styled from "styled-components";
+import type { Countries } from "@types";
 
 const CountryWrapper = styled.div`
   display: grid;
@@ -8,7 +8,7 @@ const CountryWrapper = styled.div`
   gap: 4rem;
   grid-auto-rows: auto;
   grid-auto-flow: row;
-  
+
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 2rem;

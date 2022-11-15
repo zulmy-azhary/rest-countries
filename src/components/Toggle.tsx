@@ -1,6 +1,6 @@
 import React from "react";
-import { useTheme } from "src/context";
 import styled from "styled-components";
+import { useTheme } from "@context";
 
 const ToggleWrapper = styled.div`
   display: flex;

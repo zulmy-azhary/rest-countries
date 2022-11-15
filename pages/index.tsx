@@ -1,9 +1,9 @@
 import React from "react";
-import { fetchApi } from "src/helper/fetchApi";
-import type { Countries } from "src/types";
 import { NextPage } from "next";
-import { BackToTop, CountryList, FilterRegion, SearchRegion } from "src/components";
 import styled from "styled-components";
+import { BackToTop, CountryList, FilterRegion, SearchRegion } from "@components/main";
+import { fetchApi } from "@helper/fetchApi";
+import type { Countries } from "@types";
 
 const Container = styled.div`
   display: flex;
@@ -30,14 +30,14 @@ interface Props {
 
 const HomePage: NextPage<Props> = ({ data }) => {
   return (
-      <Container>
-        <FormWrapper>
-          <SearchRegion />
-          <FilterRegion />
-        </FormWrapper>
-        <CountryList countries={data} />
-        <BackToTop />
-      </Container>
+    <Container>
+      <FormWrapper>
+        <SearchRegion />
+        <FilterRegion />
+      </FormWrapper>
+      <CountryList countries={data} />
+      <BackToTop />
+    </Container>
   );
 };
 
@@ -47,7 +47,9 @@ const HomePage: NextPage<Props> = ({ data }) => {
 const countriesParam: string = "alpha3Code,flags,name,population,region,capital";
 
 export async function getStaticProps() {
-  const data = await fetchApi<Countries[]>(`https://restcountries.com/v2/all?fields=${countriesParam}`);
+  const data = await fetchApi<Countries[]>(
+    `https://restcountries.com/v2/all?fields=${countriesParam}`
+  );
 
   return {
     props: {

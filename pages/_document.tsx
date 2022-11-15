@@ -1,6 +1,6 @@
 import Document, { DocumentContext, Head, Html, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-import { nunitoSans } from "src/styles/GlobalStyles";
+import { nunitoSans } from "@styles/GlobalStyles";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

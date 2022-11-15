@@ -14,8 +14,15 @@
     "moduleResolution": "node",
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@context": ["src/context"],
+      "@helper/*": ["src/helper/*"],
+      "@styles/*": ["src/styles/*"],
+      "@types": ["src/types"],
+    }
   },
-  "include": ["src", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["src", "src/**/*", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

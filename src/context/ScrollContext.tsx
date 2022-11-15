@@ -1,5 +1,5 @@
-import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
-import type { Dispatcher } from 'src/types';
+import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
+import type { Dispatcher } from "@types";
 
 interface ScrollCtx {
   scroll: boolean;
@@ -20,7 +20,7 @@ const ScrollProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   const scrollChange = () => {
     window.scrollTo(0, 0);
-  }
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler);
@@ -33,7 +33,7 @@ const ScrollProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     <ScrollContext.Provider value={{ scroll, setScroll, scrollHandler, scrollChange }}>
       {children}
     </ScrollContext.Provider>
-  )
-}
+  );
+};
 
-export default ScrollProvider
+export default ScrollProvider;
