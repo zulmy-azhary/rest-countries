@@ -3,6 +3,7 @@ import { Nunito_Sans as NunitoSans } from "@next/font/google";
 
 export const nunitoSans = NunitoSans({
   weight: ["300", "600", "800"],
+  subsets: ["latin"],
   fallback: ["Inter", "Helvetica", "Arial", "sans-serif"],
 });
 
@@ -52,7 +53,7 @@ const GlobalStyles = createGlobalStyle`
     transition: 0.2s;
 
     &:hover {
-      color: ${props => props.theme.colors.primary};
+      color: ${(props) => props.theme.colors.primary};
     }
   }
 
