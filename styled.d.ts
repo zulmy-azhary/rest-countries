@@ -1,6 +1,5 @@
 import "styled-components";
 
-
 // Light
 // bgColor: hsl(0, 0%, 98%);
 // elementColor: hsl(0, 0%, 100%);
@@ -25,15 +24,13 @@ declare module "styled-components" {
       primary: string;
       secondary: string;
       gray: string;
-    }
-    minWidth: string;
-    maxWidth: string;
+    };
     breakpoints: {
       mobile: string;
       tablet: string;
       laptop: string;
       desktop: string;
-    }
+    };
     light: Theme;
     dark: Theme;
     shadow: string;

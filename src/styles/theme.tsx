@@ -6,8 +6,6 @@ export const theme: DefaultTheme = {
     secondary: "#03bb21",
     gray: "#505050",
   },
-  minWidth: "375px",
-  maxWidth: "1440px",
   breakpoints: {
     mobile: "375px",
     tablet: "768px",
