@@ -56,7 +56,6 @@ const Image = styled.img`
 
 const Detail = styled.div`
   padding: 1rem 1.5rem 2.5rem;
-  height: 100%;
 `;
 
 const Title = styled.h1`
