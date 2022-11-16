@@ -4,6 +4,6 @@ export { default as Footer } from "./Footer";
 
 export { default as Toggle } from "./Toggle";
 export { default as BackToTop } from "./BackToTop";
-export { default as SearchRegion } from "./SearchRegion";
+export { default as SearchCountry } from "./SearchCountry";
 export { default as FilterRegion } from "./FilterRegion";
 export { default as CountryList } from "./CountryList";

@@ -28,13 +28,13 @@ const Nav = styled.nav`
   }
 `;
 
-const Heading = styled.h3`
-  font-family: "Nunito Sans";
-  letter-spacing: 0.5px;
-  font-size: 1rem;
+const Heading = styled.h1`
+  font-size: 1.15rem;
+  font-weight: 800;
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     font-size: 1.25rem;
+    font-weight: 600;
   }
   @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
     font-size: 1.5rem;

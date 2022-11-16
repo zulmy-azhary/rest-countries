@@ -19,13 +19,13 @@ export type Countries = {
 
 type Name = {
   name: string;
-}
+};
 
-export type Country = {
+export type Country = Countries & {
   nativeName: string;
   subregion: string;
   topLevelDomain: string[];
   currencies: Name[];
   languages: Name[];
   borders: string[];
-} & Countries;
+};

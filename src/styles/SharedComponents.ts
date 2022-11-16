@@ -28,3 +28,17 @@ export const Main = styled.main`
     max-width: calc(var(--desktop) / 1.1);
   }
 `;
+
+export const SharedForm = styled.div`
+  padding: 1.25rem 1.5rem;
+  background-color: var(--elementColor);
+  border: none;
+  border-radius: 5px;
+  color: var(--textColor);
+  box-shadow: var(--shadow);
+
+  &:focus {
+    outline: 2px ${(props) => props.theme.colors.primary} solid;
+    outline-offset: 1px;
+  }
+`;

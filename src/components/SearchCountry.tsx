@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { BiSearch } from "react-icons/bi";
+import { SharedForm } from "@styles/SharedComponents";
 
 const FormControl = styled.div`
   position: relative;
@@ -19,21 +20,10 @@ const Icon = styled(BiSearch)`
   font-size: 1.5rem;
 `;
 
-const CustomInput = styled.input`
-  padding: 1.25rem 1.5rem;
+const CustomInput = styled(SharedForm)`
   padding-left: 5rem;
-  background-color: var(--elementColor);
-  border: none;
-  border-radius: 5px;
-  color: var(--textColor);
-  box-shadow: var(--shadow);
   letter-spacing: 0.2px;
   width: 100%;
-
-  &:focus {
-    outline: 2px ${(props) => props.theme.colors.primary} solid;
-    outline-offset: 1px;
-  }
 `;
 
 const SearchRegion: React.FC = () => {
@@ -42,7 +32,9 @@ const SearchRegion: React.FC = () => {
   return (
     <FormControl>
       <CustomInput
+        as="input"
         value={search}
+        type="search"
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search for country..."
       />
