@@ -7,7 +7,6 @@ import styled from "styled-components";
 const Select = styled(SharedForm)`
   width: 100%;
   cursor: pointer;
-  transition: 0.2s;
 
   @media (min-width: 768px) {
     width: 12rem;

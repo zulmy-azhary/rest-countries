@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Toggle } from "@components/main";
-import Link from "next/link";
 
 const Wrapper = styled.header`
   background-color: var(--elementColor);
@@ -46,9 +45,7 @@ const Navbar: React.FC = () => {
   return (
     <Wrapper>
       <Nav>
-        <Link href="/">
-          <Heading>Where in the world?</Heading>
-        </Link>
+        <Heading>Where in the world?</Heading>
         <Toggle />
       </Nav>
     </Wrapper>

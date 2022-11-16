@@ -22,7 +22,7 @@ const Icon = styled(BiSearch)`
 `;
 
 const CustomInput = styled(SharedForm)`
-  padding-left: 5rem;
+  padding-left: 5rem !important;
   letter-spacing: 0.2px;
   width: 100%;
 `;

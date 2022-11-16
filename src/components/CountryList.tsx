@@ -17,7 +17,7 @@ const CountryWrapper = styled.div`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
-    gap: 4rem;
+    gap: 4.5rem;
   }
 `;
 
@@ -56,10 +56,11 @@ const Image = styled.img`
 
 const Detail = styled.div`
   padding: 1rem 1.5rem 2.5rem;
+  height: 100%;
 `;
 
 const Title = styled.h1`
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 800;
   margin-bottom: 0.75rem;
 `;
@@ -68,7 +69,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
-  padding: 0.15rem 0;
+  padding: 0.1rem 0;
   font-size: 0.9rem;
 `;
 
@@ -107,15 +108,13 @@ const CountryList: React.FC<Props> = ({ countries }) => {
         filteredCountries.map((country: Countries) => (
           <Card key={country.alpha3Code}>
             <Link href={`/country/${country.alpha3Code.toLowerCase()}`}>
-              <Image src={country.flags.svg} alt={country.name} title={country.name} />
+              <Image src={country.flags.png} alt={country.name} title={country.name} loading="lazy" />
             </Link>
             <Detail>
-              <Link href={`/country/${country.alpha3Code.toLowerCase()}`}>
-                <Title>{country.name}</Title>
-              </Link>
+              <Title>{country.name}</Title>
               <Wrapper>
                 <Caption>Population:</Caption>
-                <Text>{country.population}</Text>
+                <Text>{country.population.toLocaleString("en-US")}</Text>
               </Wrapper>
               <Wrapper>
                 <Caption>Region:</Caption>
@@ -123,7 +122,7 @@ const CountryList: React.FC<Props> = ({ countries }) => {
               </Wrapper>
               <Wrapper>
                 <Caption>Capital:</Caption>
-                <Text>{country.capital}</Text>
+                <Text>{country.capital ?? "-"}</Text>
               </Wrapper>
             </Detail>
           </Card>

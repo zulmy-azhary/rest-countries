@@ -23,7 +23,7 @@ const DataProvider: React.FC<PropsWithChildren> = ({ children }) => {
       );
     }
 
-    if (!search && region !== "All") {
+    if (!search && (region !== "All")) {
       return countries.filter((country: Countries) => country.region.includes(region));
     }
 

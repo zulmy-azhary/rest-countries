@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { styledElement } from "@styles/SharedStyles";
 
 export const Container = styled.div`
   display: flex;
@@ -30,15 +31,7 @@ export const Main = styled.main`
 `;
 
 export const SharedForm = styled.div`
+  ${styledElement}
   padding: 1.25rem 1.5rem;
-  background-color: var(--elementColor);
-  border: none;
   border-radius: 5px;
-  color: var(--textColor);
-  box-shadow: var(--shadow);
-
-  &:focus {
-    outline: 2px ${(props) => props.theme.colors.primary} solid;
-    outline-offset: 1px;
-  }
 `;

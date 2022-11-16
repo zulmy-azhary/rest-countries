@@ -45,19 +45,10 @@ const GlobalStyles = createGlobalStyle`
     background-color: var(--bgColor);
     color: var(--textColor);
   }
-
-  p {
-    transition: 0.2s;
-  }
   
   a {
     color: inherit;
     text-decoration: none;
-    transition: 0.2s;
-
-    &:hover {
-      color: ${(props) => props.theme.colors.primary};
-    }
   }
 
   ::placeholder {

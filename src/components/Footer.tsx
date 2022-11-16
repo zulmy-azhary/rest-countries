@@ -14,15 +14,19 @@ const Text = styled.p`
   font-size: 0.9rem;
 `;
 
+const CustomLink = styled(Link)`
+
+`
+
 const Footer: React.FC = () => {
   return (
     <Wrapper>
       <Text>
         Created with{" "}
         <FaHeart style={{ display: "inline-block", color: "red", verticalAlign: "middle" }} /> by{" "}
-        <Link href="https://github.com/zulmy-azhary" target="_blank" rel="noreferrer" title="Github Link">
+        <CustomLink href="https://github.com/zulmy-azhary" target="_blank" rel="noreferrer" title="Github Link">
           Zulmy Azhary
-        </Link>
+        </CustomLink>
       </Text>
     </Wrapper>
   );

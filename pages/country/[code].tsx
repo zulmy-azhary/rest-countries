@@ -1,23 +1,44 @@
 import React from "react";
-import type { GetStaticPaths, GetStaticProps } from "next";
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { fetchApi } from "@helper/fetchApi";
 import type { Countries, Country } from "@types";
 import Head from "next/head";
+import { CountryDetails } from "@components/main";
+import styled from "styled-components";
+import Link from "next/link";
+import { flex, styledElement } from "@styles/SharedStyles";
+import { BsArrowLeft } from "react-icons/bs";
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 4.5rem;
+`;
+
+const Button = styled(Link)`
+  ${flex("center", "center")}
+  ${styledElement}
+  column-gap: 0.5rem;
+  padding: 0.5rem 2.5rem;
+  border-radius: 5px;
+  width: fit-content;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+`;
 
 interface Props {
   country: Country;
 }
 
-const CountryDetails: React.FC<Props> = ({ country }) => {
+const CountryDetailsPage: NextPage<Props> = ({ country }) => {
   return (
-    <div>
+    <Wrapper>
       <Head>
         <title>Rest Countries | {country.name}</title>
         <meta name="description" content={`The ${country.name} Details page`} />
       </Head>
-      <img src={country.flags.svg} alt={country.name} width="100%" height={250} />
-      <p>{country.name}</p>
-    </div>
+      <Button href="/"><BsArrowLeft /> Back</Button>
+      <CountryDetails country={country} />
+    </Wrapper>
   );
 };
 
@@ -36,7 +57,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-
 // Fetch an individual country base on alpha3Code that have been fetched on getStaticPaths above
 export const getStaticProps: GetStaticProps = async (ctx) => {
   // Country details parameter
@@ -54,4 +74,4 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   };
 };
 
-export default CountryDetails;
+export default CountryDetailsPage;
