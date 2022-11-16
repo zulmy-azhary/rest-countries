@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { BackToTop, CountryList, FilterRegion, SearchCountry } from "@components/main";
 import { fetchApi } from "@helper/fetchApi";
 import type { Countries } from "@types";
+import { DataProvider } from "@context";
 
 const Container = styled.div`
   display: flex;
@@ -29,16 +30,17 @@ interface Props {
 }
 
 const HomePage: NextPage<Props> = ({ data }) => {
-  // const filtered = filteredData(data);
   return (
-    <Container>
-      <FormWrapper>
-        <SearchCountry />
-        <FilterRegion />
-      </FormWrapper>
-      <CountryList countries={data} />
-      <BackToTop />
-    </Container>
+    <DataProvider>
+      <Container>
+        <FormWrapper>
+          <SearchCountry />
+          <FilterRegion />
+        </FormWrapper>
+        <CountryList countries={data} />
+        <BackToTop />
+      </Container>
+    </DataProvider>
   );
 };
 

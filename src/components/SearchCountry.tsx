@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { BiSearch } from "react-icons/bi";
 import { SharedForm } from "@styles/SharedComponents";
+import { useData } from "@context";
 
 const FormControl = styled.div`
   position: relative;
@@ -27,8 +28,7 @@ const CustomInput = styled(SharedForm)`
 `;
 
 const SearchRegion: React.FC = () => {
-  const [search, setSearch] = useState<string>("");
-
+  const { search, setSearch } = useData();
   return (
     <FormControl>
       <CustomInput

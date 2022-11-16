@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import type { Countries } from "@types";
+import { useData } from "@context";
 
 const CountryWrapper = styled.div`
   display: grid;
@@ -50,6 +51,7 @@ const Image = styled.img`
   width: 100%;
   height: 150px;
   object-fit: cover;
+  user-select: none;
 `;
 
 const Description = styled.div`
@@ -79,9 +81,12 @@ interface Props {
 }
 
 const CountryList: React.FC<Props> = ({ countries }) => {
+  const { filtered } = useData();
+  const filteredCountries = filtered(countries);
+  
   return (
     <CountryWrapper>
-      {countries.map((country: Countries) => (
+      {filteredCountries.map((country: Countries) => (
         <Card key={country.alpha3Code}>
           <Link href={`/country/${country.alpha3Code.toLowerCase()}`}>
             <Image src={country.flags.svg} alt={country.name} title={country.name} />

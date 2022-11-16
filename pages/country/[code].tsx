@@ -2,6 +2,7 @@ import React from "react";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import { fetchApi } from "@helper/fetchApi";
 import type { Countries, Country } from "@types";
+import Head from "next/head";
 
 interface Props {
   country: Country;
@@ -10,6 +11,10 @@ interface Props {
 const CountryDetails: React.FC<Props> = ({ country }) => {
   return (
     <div>
+      <Head>
+        <title>Rest Countries | {country.name}</title>
+        <meta name="description" content={`The ${country.name} Details page`} />
+      </Head>
       <img src={country.flags.svg} alt={country.name} width="100%" height={250} />
       <p>{country.name}</p>
     </div>
