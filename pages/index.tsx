@@ -1,5 +1,5 @@
 import React from "react";
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import styled from "styled-components";
 import { BackToTop, CountryList, FilterRegion, SearchRegion } from "@components/main";
 import { fetchApi } from "@helper/fetchApi";
@@ -44,11 +44,11 @@ const HomePage: NextPage<Props> = ({ data }) => {
 // Api Endpoints - https://restcountries.com/v2/all
 
 // Params
-const countriesParam: string = "alpha3Code,flags,name,population,region,capital";
+const params: string = "alpha3Code,flags,name,population,region,capital";
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await fetchApi<Countries[]>(
-    `https://restcountries.com/v2/all?fields=${countriesParam}`
+    `https://restcountries.com/v2/all?fields=${params}`
   );
 
   return {

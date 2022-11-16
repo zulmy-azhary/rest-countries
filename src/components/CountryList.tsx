@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import type { Countries } from "@types";
+import Link from "next/link";
 
 const CountryWrapper = styled.div`
   display: grid;
@@ -51,7 +52,9 @@ const CountryList: React.FC<Props> = ({ countries }) => {
     <CountryWrapper>
       {countries.map((country: Countries) => (
         <Card key={country.alpha3Code}>
-          <Image src={country.flags.svg} alt={country.name} />
+          <Link href={`/country/${country.alpha3Code.toLowerCase()}`}>
+            <Image src={country.flags.svg} alt={country.name} />
+          </Link>
         </Card>
       ))}
     </CountryWrapper>
