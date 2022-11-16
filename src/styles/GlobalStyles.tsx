@@ -36,7 +36,6 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: "Nunito Sans", Inter, "Helvetica", Arial, sans-serif;
-
     transition: background-color 0.2s;
   }
   
@@ -47,6 +46,10 @@ const GlobalStyles = createGlobalStyle`
     color: var(--textColor);
   }
 
+  p {
+    transition: 0.2s;
+  }
+  
   a {
     color: inherit;
     text-decoration: none;

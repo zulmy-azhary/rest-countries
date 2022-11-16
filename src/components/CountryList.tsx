@@ -54,26 +54,43 @@ const Image = styled.img`
   user-select: none;
 `;
 
-const Description = styled.div`
+const Detail = styled.div`
   padding: 1rem 1.5rem 2.5rem;
 `;
 
 const Title = styled.h1`
   font-size: 1.25rem;
   font-weight: 800;
-  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  padding: 0.15rem 0;
+  font-size: 0.9rem;
 `;
 
 const Caption = styled.p`
-  padding: 0.15rem 0;
-  font-size: 0.9rem;
   font-weight: 600;
   color: var(--textColor);
 `;
 
-const Text = styled.span`
+const Text = styled.p`
   font-weight: 300;
   color: var(--textColor);
+`;
+
+const NotFound = styled.div`
+  grid-column: span 4 / span 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    grid-column: span 12 / span 12;
+  }
 `;
 
 interface Props {
@@ -83,28 +100,37 @@ interface Props {
 const CountryList: React.FC<Props> = ({ countries }) => {
   const { filtered } = useData();
   const filteredCountries = filtered(countries);
-  
+
   return (
     <CountryWrapper>
-      {filteredCountries.map((country: Countries) => (
-        <Card key={country.alpha3Code}>
-          <Link href={`/country/${country.alpha3Code.toLowerCase()}`}>
-            <Image src={country.flags.svg} alt={country.name} title={country.name} />
-          </Link>
-          <Description>
-            <Title>{country.name}</Title>
-            <Caption>
-              Population: <Text>{country.population}</Text>
-            </Caption>
-            <Caption>
-              Region: <Text>{country.region}</Text>
-            </Caption>
-            <Caption>
-              Capital: <Text>{country.capital}</Text>
-            </Caption>
-          </Description>
-        </Card>
-      ))}
+      {!!filteredCountries.length ? (
+        filteredCountries.map((country: Countries) => (
+          <Card key={country.alpha3Code}>
+            <Link href={`/country/${country.alpha3Code.toLowerCase()}`}>
+              <Image src={country.flags.svg} alt={country.name} title={country.name} />
+            </Link>
+            <Detail>
+              <Link href={`/country/${country.alpha3Code.toLowerCase()}`}>
+                <Title>{country.name}</Title>
+              </Link>
+              <Wrapper>
+                <Caption>Population:</Caption>
+                <Text>{country.population}</Text>
+              </Wrapper>
+              <Wrapper>
+                <Caption>Region:</Caption>
+                <Text>{country.region}</Text>
+              </Wrapper>
+              <Wrapper>
+                <Caption>Capital:</Caption>
+                <Text>{country.capital}</Text>
+              </Wrapper>
+            </Detail>
+          </Card>
+        ))
+      ) : (
+        <NotFound>Country Not Found!!</NotFound>
+      )}
     </CountryWrapper>
   );
 };
