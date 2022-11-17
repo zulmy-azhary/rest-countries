@@ -1,6 +1,5 @@
 import { useData } from "@context";
 import { SharedForm } from "@styles/SharedComponents";
-import { SelectRegion } from "@types";
 import React from "react";
 import styled from "styled-components";
 
@@ -21,8 +20,8 @@ const FilterRegion: React.FC = () => {
   const { region, setRegion } = useData();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setRegion(e.target.value)
-  }
+    setRegion(e.target.value);
+  };
 
   return (
     <Select as="select" value={region} onChange={handleChange}>

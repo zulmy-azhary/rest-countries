@@ -20,7 +20,7 @@ const ToggleControl = styled.div<{ checked: boolean }>`
   width: var(--width);
   height: var(--height);
   background: ${(props) =>
-    props.checked ? props.theme.colors.primary : "var(--textPlaceholderColor)"};
+    props.checked ? props.theme.colors.primary : "var(--placeholderColor)"};
   display: block;
   border-radius: 100px;
   position: relative;
@@ -39,38 +39,10 @@ const ToggleControl = styled.div<{ checked: boolean }>`
   }
 `;
 
-// const ToggleLabel = styled.label<{ checked: boolean }>`
-//   --height: 18px;
-//   --width: calc(var(--height) * 2);
-
-//   cursor: pointer;
-//   text-indent: -9999px;
-//   width: var(--width);
-//   height: var(--height);
-//   background: ${(props) =>
-//     props.checked ? props.theme.colors.primary : "var(--textPlaceholderColor)"};
-//   display: block;
-//   border-radius: 100px;
-//   position: relative;
-
-//   &:after {
-//     content: "";
-//     position: absolute;
-//     left: ${(props) => (props.checked ? "calc(70% - 14%)" : "10%")};
-//     top: 50%;
-//     transform: translateY(-50%);
-//     width: calc(var(--height) / 1.5);
-//     height: calc(var(--height) / 1.5);
-//     background: #fff;
-//     border-radius: 90px;
-//     transition: 0.2s;
-//   }
-// `;
-
 const Text = styled.p`
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     display: block;
   }
 `;
@@ -82,12 +54,7 @@ const Toggle: React.FC = () => {
   return (
     <ToggleWrapper onClick={toggleChange}>
       <ToggleControl checked={isDarkMode}>
-        <input
-          type="checkbox"
-          checked={isDarkMode}
-          onChange={toggleChange}
-          aria-label="Toggle"
-        />
+        <input type="checkbox" checked={isDarkMode} onChange={toggleChange} aria-label="Toggle" />
       </ToggleControl>
       <Text>Dark Mode</Text>
     </ToggleWrapper>

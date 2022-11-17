@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Toggle } from "@components/main";
+import { Toggle } from "@components";
 
 const Wrapper = styled.header`
   background-color: var(--elementColor);

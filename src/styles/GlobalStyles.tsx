@@ -20,7 +20,8 @@ const GlobalStyles = createGlobalStyle`
     --bgColor: ${(props) => props.theme.light.bgColor};
     --elementColor: ${(props) => props.theme.light.elementColor};
     --textColor: ${(props) => props.theme.light.textColor};
-    --textPlaceholderColor: ${(props) => props.theme.light.textPlaceholderColor};
+    --captionColor: ${(props) => props.theme.light.captionColor};
+    --placeholderColor: ${(props) => props.theme.light.placeholderColor};
   }
   
   /* Dark Mode */
@@ -28,7 +29,8 @@ const GlobalStyles = createGlobalStyle`
     --bgColor: ${(props) => props.theme.dark.bgColor};
     --elementColor: ${(props) => props.theme.dark.elementColor};
     --textColor: ${(props) => props.theme.dark.textColor};
-    --textPlaceholderColor: ${(props) => props.theme.dark.textPlaceholderColor};
+    --captionColor: ${(props) => props.theme.dark.captionColor};
+    --placeholderColor: ${(props) => props.theme.dark.placeholderColor};
   }
 
   * {
@@ -52,7 +54,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ::placeholder {
-    color: var(--textPlaceholderColor);
+    color: var(--placeholderColor);
   }
 `;
 

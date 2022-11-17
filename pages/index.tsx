@@ -1,9 +1,10 @@
 import React from "react";
 import { GetStaticProps, NextPage } from "next";
 import styled from "styled-components";
-import { BackToTop, CountryList, FilterRegion, SearchCountry } from "@components/main";
-import { fetchApi } from "@helper/fetchApi";
+import { BackToTop, CountryList, FilterRegion, SearchCountry } from "@components";
+import { flex } from "@styles/SharedStyles";
 import type { Countries } from "@types";
+import { fetchApi } from "@helper/fetchApi";
 import { DataProvider } from "@context";
 
 const Container = styled.div`
@@ -13,10 +14,8 @@ const Container = styled.div`
 `;
 
 const FormWrapper = styled.div`
+  ${flex("space-between", "center")}
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-direction: column;
   row-gap: 3.5rem;
 
@@ -47,15 +46,13 @@ const HomePage: NextPage<Props> = ({ data }) => {
 export const getStaticProps: GetStaticProps = async () => {
   // Params
   const params: string = "alpha3Code,flags,name,population,region,capital";
-  const data = await fetchApi<Countries[]>(
-    `https://restcountries.com/v2/all?fields=${params}`
-  );
+  const data = await fetchApi<Countries[]>(`https://restcountries.com/v2/all?fields=${params}`);
 
   return {
     props: {
       data,
     },
   };
-}
+};
 
 export default HomePage;

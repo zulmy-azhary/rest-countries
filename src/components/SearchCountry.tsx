@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { BiSearch } from "react-icons/bi";
 import { SharedForm } from "@styles/SharedComponents";
@@ -36,7 +36,7 @@ const SearchRegion: React.FC = () => {
         value={search}
         type="search"
         onChange={(e) => setSearch(e.target.value)}
-        placeholder="Search for country..."
+        placeholder="Search for a country..."
       />
       <Icon />
     </FormControl>

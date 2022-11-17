@@ -4,7 +4,8 @@ type Theme = {
   bgColor: string;
   elementColor: string;
   textColor: string;
-  textPlaceholderColor: string;
+  captionColor: string;
+  placeholderColor: string;
 };
 
 declare module "styled-components" {

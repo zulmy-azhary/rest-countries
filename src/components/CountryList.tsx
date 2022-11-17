@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { Description } from "@components";
 import type { Countries } from "@types";
 import { useData } from "@context";
 
@@ -64,24 +65,6 @@ const Title = styled.h1`
   margin-bottom: 0.75rem;
 `;
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  column-gap: 0.5rem;
-  padding: 0.1rem 0;
-  font-size: 0.9rem;
-`;
-
-const Caption = styled.p`
-  font-weight: 600;
-  color: var(--textColor);
-`;
-
-const Text = styled.p`
-  font-weight: 300;
-  color: var(--textColor);
-`;
-
 const NotFound = styled.div`
   grid-column: span 4 / span 4;
   display: flex;
@@ -107,22 +90,20 @@ const CountryList: React.FC<Props> = ({ countries }) => {
         filteredCountries.map((country: Countries) => (
           <Card key={country.alpha3Code}>
             <Link href={`/country/${country.alpha3Code.toLowerCase()}`}>
-              <Image src={country.flags.png} alt={country.name} title={country.name} loading="lazy" />
+              <Image
+                src={country.flags.png}
+                alt={country.name}
+                title={country.name}
+                loading="lazy"
+              />
             </Link>
             <Detail>
               <Title>{country.name}</Title>
-              <Wrapper>
-                <Caption>Population:</Caption>
-                <Text>{country.population.toLocaleString("en-US")}</Text>
-              </Wrapper>
-              <Wrapper>
-                <Caption>Region:</Caption>
-                <Text>{country.region}</Text>
-              </Wrapper>
-              <Wrapper>
-                <Caption>Capital:</Caption>
-                <Text>{country.capital ?? "-"}</Text>
-              </Wrapper>
+              <Description caption="Population">
+                {country.population.toLocaleString("en-US")}
+              </Description>
+              <Description caption="Region">{country.region}</Description>
+              <Description caption="Capital">{country.capital ?? "-"}</Description>
             </Detail>
           </Card>
         ))

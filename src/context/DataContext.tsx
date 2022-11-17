@@ -1,5 +1,5 @@
 import { Countries, Dispatcher, SelectRegion } from "@types";
-import React, { createContext, PropsWithChildren, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 interface DataCtx {
   search: string;
@@ -12,22 +12,22 @@ interface DataCtx {
 const DataContext = createContext<DataCtx>({} as DataCtx);
 export const useData = (): DataCtx => useContext(DataContext);
 
-const DataProvider: React.FC<PropsWithChildren> = ({ children }) => {
+const DataProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [search, setSearch] = useState<string>("");
   const [region, setRegion] = useState<SelectRegion>("All");
 
   const filtered = (countries: Countries[]) => {
-    if (!!search && (region === "All")) {
+    if (!!search && region === "All") {
       return countries.filter((country: Countries) =>
         country.name.toLowerCase().includes(search.toLowerCase())
       );
     }
 
-    if (!search && (region !== "All")) {
+    if (!search && region !== "All") {
       return countries.filter((country: Countries) => country.region.includes(region));
     }
 
-    if (!!search && (region !== "All")) {
+    if (!!search && region !== "All") {
       return countries
         .filter((country: Countries) => country.name.toLowerCase().includes(search.toLowerCase()))
         .filter((country: Countries) => country.region.includes(region));

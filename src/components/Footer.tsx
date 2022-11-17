@@ -15,8 +15,11 @@ const Text = styled.p`
 `;
 
 const CustomLink = styled(Link)`
-
-`
+  transition: color 0.2s ease-in-out;
+  :hover {
+    color: ${(props) => props.theme.colors.primary};
+  }
+`;
 
 const Footer: React.FC = () => {
   return (
@@ -24,7 +27,12 @@ const Footer: React.FC = () => {
       <Text>
         Created with{" "}
         <FaHeart style={{ display: "inline-block", color: "red", verticalAlign: "middle" }} /> by{" "}
-        <CustomLink href="https://github.com/zulmy-azhary" target="_blank" rel="noreferrer" title="Github Link">
+        <CustomLink
+          href="https://github.com/zulmy-azhary"
+          target="_blank"
+          rel="noreferrer"
+          title="Github Link"
+        >
           Zulmy Azhary
         </CustomLink>
       </Text>
