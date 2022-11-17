@@ -94,7 +94,7 @@ const BorderContainer = styled.div`
   }
 `;
 
-const BorderText = styled.h4`
+const BorderText = styled.p`
   font-weight: 600;
 `;
 
