@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Toggle } from "@components";
+import { flex } from "@styles/SharedStyles";
 
 const Wrapper = styled.header`
   background-color: var(--elementColor);
@@ -11,9 +12,7 @@ const Wrapper = styled.header`
 `;
 
 const Nav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  ${flex("space-between", "center")}
   padding: 1.5rem 1.5rem;
   margin: 0 auto;
 

@@ -1,9 +1,8 @@
 import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
-import type { Dispatcher, ThemeMode } from "@types";
+import type { Dispatcher, Theme } from "@types";
 
 interface ThemeCtx {
-  theme: ThemeMode;
-  setTheme?: Dispatcher<ThemeMode>;
+  theme: Theme;
   toggleChange: () => void;
 }
 
@@ -15,7 +14,7 @@ const ThemeContext = createContext<ThemeCtx>({
 export const useTheme = (): ThemeCtx => useContext(ThemeContext);
 
 const ThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const [theme, setTheme] = useState<ThemeMode>("light");
+  const [theme, setTheme] = useState<Theme>("light");
 
   const toggleChange = useCallback(() => {
     setTheme((prev) => {
@@ -37,7 +36,7 @@ const ThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleChange }}>
+    <ThemeContext.Provider value={{ theme, toggleChange }}>
       {children}
     </ThemeContext.Provider>
   );

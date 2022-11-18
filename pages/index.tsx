@@ -25,10 +25,10 @@ const FormWrapper = styled.div`
 `;
 
 interface Props {
-  data: Countries[];
+  countries: Countries[];
 }
 
-const HomePage: NextPage<Props> = ({ data }) => {
+const HomePage: NextPage<Props> = ({ countries }) => {
   return (
     <DataProvider>
       <Container>
@@ -36,7 +36,7 @@ const HomePage: NextPage<Props> = ({ data }) => {
           <SearchCountry />
           <FilterRegion />
         </FormWrapper>
-        <CountryList countries={data} />
+        <CountryList countries={countries} />
         <BackToTop />
       </Container>
     </DataProvider>
@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      data,
+      countries: data,
     },
   };
 };

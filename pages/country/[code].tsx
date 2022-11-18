@@ -3,9 +3,9 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import styled from "styled-components";
 import Link from "next/link";
-import { flex, styledElement } from "@styles/SharedStyles";
 import { BsArrowLeft } from "react-icons/bs";
 import { CountryDetails } from "@components";
+import { flex, styledElement } from "@styles/SharedStyles";
 import { fetchApi } from "@helper/fetchApi";
 import type { Countries, Country } from "@types";
 
@@ -66,9 +66,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   // Country details parameter
   const params: string =
     "alpha3Code,flags,name,nativeName,population,region,subregion,capital,topLevelDomain,currencies,languages,borders";
-  // Get the alpha3Code for each country
+  // Get the alpha3Code
   const code = ctx.params.code;
-  // Fetch the country based on alpha3Code
+  // Fetch an individual country based on alpha3Code
   const data = await fetchApi<Country>(
     `https://restcountries.com/v2/alpha/${code}?fields=${params}`
   );

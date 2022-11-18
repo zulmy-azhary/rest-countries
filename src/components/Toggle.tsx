@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { useTheme } from "@context";
+import { flex } from "@styles/SharedStyles";
 
 const ToggleWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${flex("center", "center")}
   column-gap: 0.5rem;
   cursor: pointer;
   user-select: none;
@@ -25,7 +24,7 @@ const ToggleControl = styled.div<{ checked: boolean }>`
   border-radius: 100px;
   position: relative;
 
-  &:after {
+  :after {
     content: "";
     position: absolute;
     left: ${(props) => (props.checked ? "calc(70% - 14%)" : "10%")};
@@ -52,7 +51,7 @@ const Toggle: React.FC = () => {
   const isDarkMode = theme === "dark";
 
   return (
-    <ToggleWrapper onClick={toggleChange}>
+    <ToggleWrapper onClick={toggleChange} title="Toggle for Light/Dark Mode">
       <ToggleControl checked={isDarkMode}>
         <input type="checkbox" checked={isDarkMode} onChange={toggleChange} aria-label="Toggle" />
       </ToggleControl>

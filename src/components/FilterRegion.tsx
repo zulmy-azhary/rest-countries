@@ -1,7 +1,7 @@
-import { useData } from "@context";
-import { SharedForm } from "@styles/SharedComponents";
 import React from "react";
 import styled from "styled-components";
+import { useData } from "@context";
+import { SharedForm } from "@styles/SharedComponents";
 
 const Select = styled(SharedForm)`
   width: 100%;

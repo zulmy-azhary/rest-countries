@@ -1,6 +1,10 @@
 import { css } from "styled-components";
 
-export const flex = (justifyContent: string, alignItems: string) => css`
+type Flex = "flex-start" | "flex-end" | "center" | "initial" | "inherit";
+type JustifyContent = Flex | "space-between" | "space-around" | "space-evenly";
+type AlignItems = Flex | "stretch" | "baseline";
+
+export const flex = (justifyContent: JustifyContent, alignItems: AlignItems) => css`
   display: flex;
   justify-content: ${justifyContent};
   align-items: ${alignItems};
@@ -12,7 +16,8 @@ export const styledElement = css`
   box-shadow: var(--shadow);
   border: none;
 
-  :hover, :focus {
+  :hover,
+  :focus {
     outline: 2px ${(props) => props.theme.colors.primary} solid;
     outline-offset: 1px;
   }

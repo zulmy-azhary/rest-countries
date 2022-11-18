@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
-import { Container, Main } from "@styles/SharedComponents";
 import { Footer, Navbar } from "@components";
+import { Container, Main } from "@styles/SharedComponents";
 
 const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (

@@ -1,5 +1,5 @@
-import { Countries, Dispatcher, SelectRegion } from "@types";
 import React, { createContext, useContext, useState } from "react";
+import type { Countries, Dispatcher, SelectRegion } from "@types";
 
 interface DataCtx {
   search: string;

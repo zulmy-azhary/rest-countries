@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Description } from "@components";
 import type { Countries } from "@types";
 import { useData } from "@context";
+import { CustomLink } from "@styles/SharedComponents";
+import { flex } from "@styles/SharedStyles";
 
 const CountryWrapper = styled.div`
   display: grid;
@@ -30,8 +32,12 @@ const Card = styled.div`
   box-shadow: var(--shadow);
   transition: 0.2s;
 
-  &:hover {
+  :hover {
     transform: translateY(-3%);
+
+    ${CustomLink}{
+      color: ${(props) => props.theme.colors.primary};
+    }
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
@@ -67,12 +73,12 @@ const Title = styled.h1`
 
 const NotFound = styled.div`
   grid-column: span 4 / span 4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  ${flex("center", "center")}
+  height: 30vh;
+  
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     grid-column: span 12 / span 12;
+    height: 50vh;
   }
 `;
 
@@ -98,7 +104,9 @@ const CountryList: React.FC<Props> = ({ countries }) => {
               />
             </Link>
             <Detail>
-              <Title>{country.name}</Title>
+              <CustomLink href={`/country/${country.alpha3Code.toLowerCase()}`}>
+                <Title>{country.name}</Title>
+              </CustomLink>
               <Description caption="Population">
                 {country.population.toLocaleString("en-US")}
               </Description>
@@ -108,7 +116,7 @@ const CountryList: React.FC<Props> = ({ countries }) => {
           </Card>
         ))
       ) : (
-        <NotFound>Country Not Found!!</NotFound>
+        <NotFound>Country Not Found!! 😕</NotFound>
       )}
     </CountryWrapper>
   );

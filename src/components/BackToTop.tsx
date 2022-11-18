@@ -1,15 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { BiUpArrowAlt } from "react-icons/bi";
 import styled from "styled-components";
+import { flex } from "@styles/SharedStyles";
 
 const Icon = styled(BiUpArrowAlt)`
   font-size: 2rem;
 `;
 
 const Wrapper = styled.div<{ scrollState: boolean }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${flex("center", "center")}
   position: fixed;
   z-index: 9999;
   background-color: var(--elementColor);

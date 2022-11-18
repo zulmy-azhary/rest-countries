@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const Wrapper = styled.div<{ fontSize: string }>`
   display: flex;
-  align-items: center;
   column-gap: 0.5rem;
   padding: 0.1rem 0;
   font-size: ${(props) => props.fontSize ?? "0.875rem"};
@@ -12,12 +11,15 @@ const Wrapper = styled.div<{ fontSize: string }>`
 const Caption = styled.p`
   font-weight: 600;
   color: var(--textColor);
-  /* align-self: flex-start; */
+  white-space: nowrap;
 `;
 
 const Text = styled.p`
   font-weight: 300;
   color: var(--captionColor);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 interface Props {

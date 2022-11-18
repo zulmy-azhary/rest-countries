@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FaHeart } from "react-icons/fa";
-import Link from "next/link";
+import { CustomLink } from "@styles/SharedComponents";
 
 const Wrapper = styled.footer`
   width: 100%;
@@ -14,13 +14,6 @@ const Text = styled.p`
   font-size: 0.9rem;
 `;
 
-const CustomLink = styled(Link)`
-  transition: color 0.2s ease-in-out;
-  :hover {
-    color: ${(props) => props.theme.colors.primary};
-  }
-`;
-
 const Footer: React.FC = () => {
   return (
     <Wrapper>
@@ -31,7 +24,7 @@ const Footer: React.FC = () => {
           href="https://github.com/zulmy-azhary"
           target="_blank"
           rel="noreferrer"
-          title="Github Link"
+          title="Github Profile"
         >
           Zulmy Azhary
         </CustomLink>
