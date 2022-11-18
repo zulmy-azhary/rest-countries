@@ -24,7 +24,7 @@ const FilterRegion: React.FC = () => {
   };
 
   return (
-    <Select as="select" value={region} onChange={handleChange}>
+    <Select as="select" value={region} onChange={handleChange} aria-label="Filter by Region" name="Filter">
       <Option value="All">Filter by Region</Option>
       <Option value="Africa">Africa</Option>
       <Option value="America">America</Option>

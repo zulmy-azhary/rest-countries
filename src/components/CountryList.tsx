@@ -100,7 +100,6 @@ const CountryList: React.FC<Props> = ({ countries }) => {
                 src={country.flags.png}
                 alt={country.name}
                 title={country.name}
-                loading="lazy"
               />
             </Link>
             <Detail>
