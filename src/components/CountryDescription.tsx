@@ -11,7 +11,7 @@ const DetailWrapper = styled.div`
 
 const Header = styled.h1`
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 600;
 
   @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
     font-size: 2rem;
@@ -50,22 +50,22 @@ const CountryDescription: React.FC<Props> = ({ country }) => {
     <DetailWrapper>
       <Header>{country.name}</Header>
       <Details>
-        <Description fontSize="1rem" caption="Native Name">
+        <Description fontSize="0.9rem" caption="Native Name">
           {country.nativeName}
         </Description>
-        <Description caption="Population">{country.population.toLocaleString("en-US")}</Description>
-        <Description caption="Region">{country.region}</Description>
-        <Description caption="Sub Region">{country.subregion}</Description>
-        <Description caption="Capital">{country.capital ? country.capital : "-"}</Description>
-        <Description caption="Top Level Domain">
+        <Description fontSize="0.9rem" caption="Population">{country.population.toLocaleString("en-US")}</Description>
+        <Description fontSize="0.9rem" caption="Region">{country.region}</Description>
+        <Description fontSize="0.9rem" caption="Sub Region">{country.subregion}</Description>
+        <Description fontSize="0.9rem" caption="Capital">{country.capital ? country.capital : "-"}</Description>
+        <Description fontSize="0.9rem" caption="Top Level Domain">
           {country.topLevelDomain.join(", ") ?? "-"}
         </Description>
-        <Description caption="Currencies">
+        <Description fontSize="0.9rem" caption="Currencies">
           {!!country.currencies.length
             ? country.currencies.map((currency) => currency.name).join(", ")
             : "-"}
         </Description>
-        <Description caption="Languages">
+        <Description fontSize="0.9rem" caption="Languages">
           {country.languages.map((language) => language.name).join(", ")}
         </Description>
       </Details>

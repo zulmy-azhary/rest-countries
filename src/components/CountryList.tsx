@@ -62,12 +62,12 @@ const Image = styled.img`
 `;
 
 const Detail = styled.div`
-  padding: 1rem 1.5rem 2.5rem;
+  padding: 1rem 1.5rem 2.75rem;
 `;
 
 const Title = styled.h1`
   font-size: 1.15rem;
-  font-weight: 800;
+  font-weight: 600;
   margin-bottom: 0.75rem;
 `;
 

@@ -4,12 +4,12 @@ import styled from "styled-components";
 const Wrapper = styled.div<{ fontSize: string }>`
   display: flex;
   column-gap: 0.5rem;
-  padding: 0.1rem 0;
+  padding: 0.25rem 0;
   font-size: ${(props) => props.fontSize ?? "0.875rem"};
 `;
 
 const Caption = styled.p`
-  font-weight: 600;
+  font-weight: 400;
   color: var(--textColor);
   white-space: nowrap;
 `;

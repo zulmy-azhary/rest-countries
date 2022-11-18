@@ -15,7 +15,7 @@ const BorderContainer = styled.div`
 `;
 
 const BorderText = styled.p`
-  font-weight: 600;
+  font-weight: 400;
 `;
 
 const BorderWrapper = styled.div`
