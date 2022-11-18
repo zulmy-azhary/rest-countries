@@ -47,7 +47,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [FrontEnd Mentor Solution](https://www.frontendmentor.io/solutions/rest-countries-nextjs-with-ssg-typescript-and-styled-components-_ARLO_rbqZ)
 - Live Site URL: [Demo](https://zoel-restcountries.vercel.app)
 
 ## My process
