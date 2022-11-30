@@ -4,6 +4,7 @@ export { default as Footer } from "./Footer";
 export { default as Custom404 } from "./Custom404";
 
 export { default as CountryList } from "./CountryList";
+export { default as CountryCard } from "./CountryCard";
 export { default as CountryDetails } from "./CountryDetails";
 export { default as CountryDescription } from "./CountryDescription";
 export { default as CountryBorder } from "./CountryBorder";
